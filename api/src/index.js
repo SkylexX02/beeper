@@ -11,8 +11,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(checkJwt);
 
-app.get("/", (req, res) => {
-	res.status(200).send(`Hello ${req.auth.sub}`);
+app.get("/home", async (req, res) => {
+	const home = await getUserHome(req.auth.sub);
+	res.status(200).json(home);
 });
 
 app.post("/beep", async (req, res) => {
