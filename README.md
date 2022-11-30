@@ -169,10 +169,10 @@ Some variables in our application depend on the environment in which the applica
  
  In `api`, create a `.env` file with the following content:
  ```txt
-PGHOST=localhost
-PGPORT=5432
+PGHOST=localhost OU beeper-mines-nancy.tk
+PGPORT=5432      OU 45823
 PGUSER=postgres
-PGPASSWORD=example
+PGPASSWORD=example  OU le password de tout à l'heure
 PGDATABASE=postgres
 
 AUTH0_DOMAIN=dev-vdt8h6o8k0l5v2wj.us.auth0.com
