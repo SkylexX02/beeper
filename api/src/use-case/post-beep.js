@@ -1,3 +1,4 @@
+import { getAuth0UsersByIds } from "../auth/auth0-client.js";
 import { insertBeep } from "../db/insert-beep.js";
 
 const BEEP_MAX_LENGTH = 280;
@@ -11,5 +12,10 @@ export async function postBeep(userId, content) {
 
 	const insertedBeep = await insertBeep(userId, content);
 
-	return insertedBeep;
+	const [user] = await getAuth0UsersByIds([userId]);
+
+	return {
+		...insertedBeep,
+		author: user,
+	};
 }
